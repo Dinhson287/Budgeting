@@ -38,18 +38,14 @@ public class ExpenseController {
         if (optionalExpense.isPresent()) {
             Expense existingExpense = optionalExpense.get();
 
-            // Step 3: Update the existing Expense with values from the request body
-            // You can update specific fields as needed
             existingExpense.setExpenseTitle(expense.getExpenseTitle());
             existingExpense.setExpenseAmount(expense.getExpenseAmount());
             existingExpense.setExpenseDate(expense.getExpenseDate());
             existingExpense.setCategories(expense.getCategories());
 
-            // Step 4: Save the updated Expense and return it in ResponseEntity
             Expense updatedExpense = expenseService.updateExpense(existingExpense);
             return ResponseEntity.ok(updatedExpense);
         } else {
-            // Handle the case where Expense with given id is not found
             return ResponseEntity.notFound().build();
         }
     }
