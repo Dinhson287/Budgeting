@@ -15,9 +15,18 @@ public class Expense {
     private String expenseTitle;
     private Double expenseAmount;
     private LocalDate expenseDate;
+    private String categories;
 
     public Expense() {
 
+    }
+
+    public String getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String categories) {
+        this.categories = categories;
     }
 
     @Id
