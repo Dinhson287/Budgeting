@@ -41,7 +41,6 @@ public class ExpenseController {
             existingExpense.setExpenseTitle(expense.getExpenseTitle());
             existingExpense.setExpenseAmount(expense.getExpenseAmount());
             existingExpense.setExpenseDate(expense.getExpenseDate());
-            existingExpense.setCategories(expense.getCategories());
 
             Expense updatedExpense = expenseService.updateExpense(existingExpense);
             return ResponseEntity.ok(updatedExpense);
