@@ -6,9 +6,11 @@ import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Aspect
 @Configuration
+@Profile("local")
 public class ExpenseServiceAspect {
     private final Logger logger = LoggerFactory.getLogger(ExpenseServiceAspect.class);
 
@@ -18,6 +20,6 @@ public class ExpenseServiceAspect {
     }
     @Before("execution(* com.budgeting.Backend.Service.ExpenseService.getAll(..))")
     public void after(JoinPoint joinPoint){
-        logger.info("Add expense successful");
+        logger.info("Get all expense successful");
     }
 }
